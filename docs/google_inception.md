@@ -20,7 +20,7 @@ link_url: https://arxiv.org/abs/1409.4842
 - 2012년 Alexnet 보다 12x **적은** 파라미터 수. (GoogLeNet 은 약 \\(6.8M\\) 의 파라미터 수)
 - 구글측 주장
     - 알다시피 딥러닝은 망이 깊을수록(deep) 레이어가 넓을수록(wide) 성능이 좋다.
-    - 역시나 알다시피 현실적으로는 overfeating, vanishing 등의 문제로 실제 학습이 어렵다.
+    - 역시나 알다시피 현실적으로는 overfitting, vanishing 등의 문제로 실제 학습이 어렵다.
     - 구현을 위한 현실적인 문제들.
         - 신경망은 Sparsity 해야지만 좋은 성능을 낸다. (Dropout 생각해봐라)
         - 논문에서는 데이터의 확률 분포를 아주 큰 신경망으로 표현할 수 있다면(신경망은 사후 분포로 취급 가능하므로),
@@ -329,6 +329,10 @@ link_url: https://arxiv.org/abs/1409.4842
 #### 7 x inception-B
 
 ![figure.21]({{ site.baseurl }}/images/{{ page.group }}/f21.png){:class="center-block" height="250px"}
+1x7 Conv (256) <- 1x7 Conv (224) <- 1x1 Conv (192)에서
+7x1 Conv (256)으로 되어야 할 것 같습니다. 논문에서도 1x7로 그림이 나와 있던데 
+Inception v2 논문 figure 6 참고하면 n x 1 <- 1 x n <- 1 x 1 이런식이라서 1x7 <- 1x7 아니고 7x1 <- 1x7일 것 같습니다.
+
 
 #### 3 x inception-C
 
